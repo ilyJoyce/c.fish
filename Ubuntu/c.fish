@@ -15,7 +15,6 @@ function c --argument-names cmd arg --description "Custom commands for Ubuntu Li
             uninst: uninstalls a program using yay
             upt: does  a system update
             yt: opens Youtube :/
-            brave: searches brave for following arguments (example: (c brave hello world) to search brave for hello world)
             prnt: simple print command (no quote's needed)
             tm: prints the tm symbol
             restart-desktop: restart's the Gnome shell (hopefully)"
@@ -40,9 +39,6 @@ function c --argument-names cmd arg --description "Custom commands for Ubuntu Li
         case yt
             echo "opening Youtube"
             open "https://youtube.com"
-        case brave
-            echo "searching..."
-            open "https://search.brave.com/search?q=$argv[2..]"
         case prnt
             echo "$argv[2..]"
         case tm
@@ -52,6 +48,6 @@ function c --argument-names cmd arg --description "Custom commands for Ubuntu Li
         case restart-desktop
             killall -SIGHUP gnome-shell
         case \*     #Das muss hier unten bleiben, sonst ist jeder command "falsch"
-            echo "c-cmd: Das kein Command: \"$cmd\" Bist du dumm? " >&2 && return 1
+            echo "c-cmd: That's not a command: \"$cmd\" are you mentally challenged? " >&2 && return 1
     end
 end
