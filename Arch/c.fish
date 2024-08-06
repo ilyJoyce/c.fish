@@ -17,7 +17,6 @@ function c --argument-names cmd arg --description "Custom commands for Arch Linu
             repo: opens the arch repo and optionally searches for given package (example: (c repo obs) to search for obs)
             aur: opens the aur and optionally searches for given package (example: (c aur obs) to search for obs)
             yt: opens Youtube :/
-            brave: searches brave for following arguments (example: (c brave hello world) to search brave for hello world)
             prnt: simple print command (no quote's needed)
             tm: prints the tm symbol
             packages: writes all packages into a file in /home/'user'/Documents and tells you the number of installed packages"
@@ -47,9 +46,6 @@ function c --argument-names cmd arg --description "Custom commands for Arch Linu
         case yt
             echo "opening Youtube"
             open "https://youtube.com"
-        case brave
-            echo "searching..."
-            open "https://search.brave.com/search?q=$argv[2..]"
         case prnt
             echo "$argv[2..]"
         case tm
