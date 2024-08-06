@@ -56,74 +56,7 @@ function c --argument-names cmd arg --description "Custom commands for Arch Linu
             echo "
             ™
             "
-        case m64
-            cd /home/joyce/SMc64/SMc64/
-            rm -rf build
-
-            if test (count $argv) -ge 2 #Schaut, ob 2 argument beschrieben sind und setzt das zweite als die variable cores. Faellt bei keinem argument 2 auf 4 zurueck
-                set cores $arg
-            else
-                set cores 4
-            end
-
-            echo "building Mario 64 with Minecraft textures with $cores cores"
-            make BETTERCAMERA=1 EXTERNAL_DATA=1 -j$cores
-            make BETTERCAMERA=1 EXTERNAL_DATA=1 -j$cores
-            cd
-            c clean
-        case smc64
-            cd /home/joyce/SMc64/SMc64/build/us_pc/
-            ./sm64.us.*
-            cd
-            c clean
-        case packages
-            yay -s > /home/joyce/Documents/packages.txt
-            echo "updated 'packages.txt' in /home/joyce/Documents"
-            echo (math (wc -l /home/joyce/Documents/packages.txt | cut -d' ' -f1)/2) packages are currently installed
-        case roi
-        if test "$arg" = "danke"
-                echo "
-                Gerne doch kleiner.
-                Benutzt mich ruhig so oft du brauchst
-                "
-                return 0
-            else
-                while true
-                read -p 'echo "Hey! Wie gehts dir kleiner?: "' -l mental_state
-
-                switch $mental_state
-                    case naja Naja :/
-                        read -p 'echo "An was denkst du gerade?: "' -l thoughts
-                        switch $thoughts
-                        case aua Aua killme Killme KillMe killMe
-                            echo "
-                            Das sind keine guten Gedanken.
-                            Aber hey... Alles ist gut.
-                            Du bist hier. Dein Terminal ist hier.
-                            DU LEBST. DAS IST KLASSE :D.
-                            Du schaffst das kleiner.. Ich glaub an dich
-                            "
-                            return 0
-                        case nix Nix nichts Nichts leer Leer empty Empty manno Manno viel Viel
-                            echo "
-                            Ist wieder alles leer?
-                            Kein Antrieb? Kein Bock?
-                            Das ist nicht schlimm. Nimm dir nh Pause.
-                            Sag ab wenn du nicht gehen willst.
-                            Ich glaub an dich kleiner!
-                            "
-                            return 0
-                    end
-                    case super Super geht Geht Ja ja
-                        echo "
-                        Das ist toll. Ich hoffe es bleibt so.
-                        Hab dich lieb :3
-                        "
-                        return 0
-                end
-            end
-        end
         case \*     #Das muss hier unten bleiben, sonst ist jeder command "falsch"
-            echo "c-cmd: Das kein Command: \"$cmd\" Bist du dumm? " >&2 && return 1
+            echo "c-cmd: That's not a command: \"$cmd\" are you mentally challenged? " >&2 && return 1
     end
 end

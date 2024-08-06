@@ -49,6 +49,6 @@ function c --argument-names cmd arg --description "Custom commands for Kubuntu L
             killall plasmashell
             kstart plasmashell
         case \*     #Das muss hier unten bleiben, sonst ist jeder command "falsch"
-            echo "c-cmd: Das kein Command: \"$cmd\" Bist du dumm? " >&2 && return 1
+            echo "c-cmd: That's not a command: \"$cmd\" are you mentally challenged? " >&2 && return 1
     end
 end
