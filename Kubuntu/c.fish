@@ -17,10 +17,17 @@ function c --argument-names cmd arg --description "Custom commands for Kubuntu L
             yt: opens Youtube :/
             prnt: simple print command (no quote's needed)
             tm: prints the tm symbol
-            restart-desktop: restart's the Plasma shell"
+            restart-desktop: restart's the Plasma shell
+            restart-kwin: restart's the KWin window manager"
         case clean
             clear
             neofetch
+            echo "
+
+            "
+            echo (set_color cyan)Python(set_color magenta): (set_color white)v(python --version | string replace 'Python ' '')
+            echo (set_color cyan)Node(set_color magenta): (set_color white)(node --version | string replace 'Node ' '')
+            echo (set_color cyan)(make --version | string split ' ' | head -n 2 | string join ' ' | string replace -r '^GNU\s+' '')(set_color magenta): (set_color white)v(make --version | string split ' ' | head -n 3 | tail -n 1)
             set_color magenta
             echo "--------------------------------------------------------------------------------"
         case search
@@ -48,6 +55,8 @@ function c --argument-names cmd arg --description "Custom commands for Kubuntu L
         case restart-desktop
             killall plasmashell
             kstart plasmashell
+        case restart-kwin
+            pkill kwin
         case \*     #Das muss hier unten bleiben, sonst ist jeder command "falsch"
             echo "c-cmd: That's not a command: \"$cmd\" are you mentally challenged? " >&2 && return 1
     end
