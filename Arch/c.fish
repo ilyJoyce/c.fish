@@ -23,6 +23,12 @@ function c --argument-names cmd arg --description "Custom commands for Arch Linu
         case clean
             clear
             neofetch
+            echo "
+
+            "
+            echo (set_color cyan)Python(set_color magenta): (set_color white)v(python --version | string replace 'Python ' '')
+            echo (set_color cyan)Node(set_color magenta): (set_color white)(node --version | string replace 'Node ' '')
+            echo (set_color cyan)(make --version | string split ' ' | head -n 2 | string join ' ' | string replace -r '^GNU\s+' '')(set_color magenta): (set_color white)v(make --version | string split ' ' | head -n 3 | tail -n 1)
             set_color magenta
             echo "--------------------------------------------------------------------------------"
         case search
